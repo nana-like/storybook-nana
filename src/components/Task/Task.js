@@ -47,7 +47,14 @@ export default function Task({
 
 Task.propTypes = {
   task: PropTypes.shape({
+    /**
+      id: 태스크를 식별할 아이디입니다.
+    **/
     id: PropTypes.string.isRequired,
+    /**
+      - 옴뇸뇸
+      - 랄랄라
+    **/
     title: PropTypes.string.isRequired,
     state: PropTypes.string.isRequired
   }),

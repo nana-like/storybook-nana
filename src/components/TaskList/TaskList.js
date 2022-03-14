@@ -56,13 +56,13 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 }
 
 TaskList.propTypes = {
-  /** Checks if it's in loading state */
-  loading: PropTypes.bool,
-  /** The list of tasks */
+  /** 태스크 목록 */
   tasks: PropTypes.arrayOf(Task.propTypes.task).isRequired,
-  /** Event to change the task to pinned */
+  /** 옴뇸뇸 🍦 */
+  loading: PropTypes.bool,
+  /** 태스크 상태를 Pinned로 변경합니다 */
   onPinTask: PropTypes.func,
-  /** Event to change the task to archived */
+  /** 태스크 상태를 archived로 변경합니다 */
   onArchiveTask: PropTypes.func
 };
 TaskList.defaultProps = {

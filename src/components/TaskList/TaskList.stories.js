@@ -4,7 +4,16 @@ import * as TaskStories from './../Task/Task.stories';
 export default {
   component: TaskList,
   title: 'Components/TaskList',
-  decorators: [(story) => <div style={{ padding: '30px' }}>{story()}</div>]
+  decorators: [(story) => <div style={{ padding: '30px' }}>{story()}</div>],
+  parameters: {
+    componentSubtitle: '태스크 목록입니다.',
+    backgrounds: {
+      values: [
+        { name: 'crimson', value: 'crimson' },
+        { name: 'salmon', value: 'salmon' }
+      ]
+    }
+  }
 };
 
 const Template = (args) => <TaskList {...args} />;
@@ -33,6 +42,11 @@ export const Loading = Template.bind({});
 Loading.args = {
   tasks: [],
   loading: true
+};
+Loading.parameters = {
+  docs: {
+    storyDescription: '로딩 중인 화면입니다. 옴뇸뇸 옴뇸뇸 🍣'
+  }
 };
 
 export const Empty = Template.bind({});
