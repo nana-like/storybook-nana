@@ -3,7 +3,14 @@ import Task from './Task';
 
 export default {
   title: 'Components/Task',
-  component: Task
+  component: Task,
+  argTypes: {
+    theme: {
+      control: 'radio',
+      options: ['dark', 'light']
+    },
+    isDisabled: { control: 'boolean' }
+  }
 };
 
 const Template = (args) => <Task {...args} />;
