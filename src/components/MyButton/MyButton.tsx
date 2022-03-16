@@ -3,14 +3,15 @@ import classNames from 'classnames/bind';
 import { ReactNode, useState } from 'react';
 const cx = classNames.bind(style);
 
-interface MyButtonProps {
+export interface MyButtonProps {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
-  appearance?: 'fill' | 'line';
+  appearance?: 'fill' | 'outline' | 'text';
   size?: 'small' | 'medium' | 'large';
   color?: 'primary' | 'secondary' | 'gray';
   isLoading?: boolean;
-  disabled?: boolean;
+  isDisabled?: boolean;
+  isOnlyIcon?: boolean;
   children: ReactNode;
   onClick?: (e: MouseEvent) => void;
 }
@@ -21,7 +22,7 @@ export default function MyButton({
   appearance = 'fill',
   size = 'medium',
   color = 'primary',
-  disabled = false,
+  isDisabled = false,
   isLoading = false,
   children,
   onClick = () => null,
@@ -35,7 +36,7 @@ export default function MyButton({
     <button
       type={type}
       className={cx(`${size}`, loading && 'isLoading', `${color}`)}
-      disabled={disabled}
+      disabled={isDisabled}
       onClick={onButtonClick}
       {...props}
     >

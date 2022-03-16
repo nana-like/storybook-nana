@@ -7,6 +7,7 @@ export default {
   parameters: {
     componentSubtitle: '기본 로고입니다.',
     backgrounds: {
+      default: '회색',
       values: [
         { name: '회색', value: '#efefef' },
         { name: '검정색', value: '#111111' }

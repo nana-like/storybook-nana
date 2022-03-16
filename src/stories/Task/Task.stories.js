@@ -2,7 +2,7 @@ import React from 'react';
 import Task from './Task';
 
 export default {
-  title: 'Components/Task',
+  title: 'Test/Task',
   component: Task,
   argTypes: {
     theme: {

@@ -3,7 +3,7 @@ import * as TaskStories from './../Task/Task.stories';
 
 export default {
   component: TaskList,
-  title: 'Components/TaskList',
+  title: 'Test/TaskList',
   decorators: [(story) => <div style={{ padding: '30px' }}>{story()}</div>],
   parameters: {
     componentSubtitle: '태스크 목록입니다.',
