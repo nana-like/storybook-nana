@@ -1,7 +1,9 @@
-// html {
-//   background-color: $c-primary;
-// }
+@import './nomalize';
 
-// :export {
-//   primary: $c-primary;
-// }
+html {
+  font-size: 62.5%;
+}
+
+:export {
+  primary: $c-primary;
+}

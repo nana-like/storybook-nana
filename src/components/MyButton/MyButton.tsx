@@ -7,12 +7,14 @@ export interface MyButtonProps {
   className?: string;
   type?: 'button' | 'submit' | 'reset';
   appearance?: 'fill' | 'outline' | 'text';
-  size?: 'small' | 'medium' | 'large';
-  color?: 'primary' | 'secondary' | 'gray';
-  isLoading?: boolean;
+  color?: 'primary' | 'secondary' | 'tertiary';
+  size?: 'large' | 'medium' | 'small';
+  isFullWidth?: boolean;
   isDisabled?: boolean;
+  isLoading?: boolean;
   isOnlyIcon?: boolean;
-  children: ReactNode;
+  ariaLabel?: string;
+  children?: ReactNode;
   onClick?: (e: MouseEvent) => void;
 }
 
@@ -20,12 +22,15 @@ export default function MyButton({
   className,
   type = 'button',
   appearance = 'fill',
-  size = 'medium',
   color = 'primary',
+  size = 'medium',
+  isFullWidth = false,
   isDisabled = false,
   isLoading = false,
-  children,
+  isOnlyIcon = false,
+  ariaLabel,
   onClick = () => null,
+  children,
   ...props
 }: MyButtonProps): JSX.Element {
   const [loading, setLoading] = useState<boolean>(isLoading);
@@ -35,8 +40,14 @@ export default function MyButton({
   return (
     <button
       type={type}
-      className={cx(`${size}`, loading && 'isLoading', `${color}`)}
+      className={cx(`${appearance}`, `${color}`, `${size}`, {
+        isFullWidth,
+        isDisabled,
+        isLoading,
+        isOnlyIcon
+      })}
       disabled={isDisabled}
+      aira-label={ariaLabel}
       onClick={onButtonClick}
       {...props}
     >

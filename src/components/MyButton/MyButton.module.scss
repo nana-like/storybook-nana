@@ -1,5 +1,40 @@
-// @import './../../styles/variable';
-// @import '@/styles/variable';
+$button-colors: (
+  primary: $c-primary,
+  secondary: $c-secondary,
+  tertiary: #45c98b
+);
+
+$button-size: (
+  type: (
+    large,
+    medium,
+    small
+  ),
+  font: (
+    16px,
+    14px,
+    12px
+  ),
+  padding: (
+    24px,
+    20px,
+    8px
+  ),
+  width: (
+    140px,
+    90px,
+    50px
+  ),
+  height: (
+    50px,
+    40px,
+    32px
+  )
+);
+
+@function setHoverColor($value) {
+  @return mix(#000, $value, 10%);
+}
 
 @keyframes rotate360deg {
   0% {
@@ -11,64 +46,116 @@
 }
 
 button {
-  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  font-size: 1.4rem;
+  text-align: center;
+  background: none;
   border: 0;
-  border-radius: 30px;
+  transition: all 0.3s;
   cursor: pointer;
-  display: inline-block;
-  line-height: 1;
-  font-size: 14px;
-  padding: 10px 30px;
-  color: #fff;
-  background-color: $c-primary;
 
-  &.secondary {
-    color: #333;
-    background-color: transparent;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+  &.fill,
+  &.outline {
+    display: inline-flex;
+    flex: 0 0 auto;
+    justify-content: center;
+    align-items: center;
+    border-width: 0.1rem;
+    border-style: solid;
+    white-space: nowrap;
+    border-radius: 0.4rem;
   }
 
-  &.small {
-    font-size: 12px;
-    padding: 10px 30px;
+  &.text {
+    text-decoration: underline;
   }
 
-  &.medium {
-    padding: 14px 40px;
+  // Colors
+  @each $name, $value in $button-colors {
+    &.#{$name} {
+      &.fill {
+        color: #fff;
+        background-color: $value;
+        border-color: $value;
+
+        &:hover:not(:disabled):not(.isLoading) {
+          background-color: setHoverColor($value);
+          border-color: setHoverColor($value);
+        }
+      }
+
+      &.outline {
+        color: $value;
+        border-color: currentColor;
+
+        &:hover:not(:disabled):not(.isLoading) {
+          color: #fff;
+          background-color: $value;
+          border-color: $value;
+        }
+      }
+
+      &.text {
+        color: $value;
+
+        &:hover:not(:disabled):not(.isLoading) {
+          color: setHoverColor($value);
+        }
+      }
+    }
   }
 
-  &.large {
-    font-size: 16px;
-    padding: 18px 60px;
+  // Size
+  @each $size in map-get($button-size, type) {
+    $i: index(map-get($button-size, type), $size);
+
+    &.#{$size}:not(.text):not(.isOnlyIcon) {
+      height: nth(map-get($button-size, height), $i);
+      padding: 0 nth(map-get($button-size, padding), $i);
+      min-width: nth(map-get($button-size, width), $i);
+
+      &:not(.isLoading) {
+        font-size: nth(map-get($button-size, font), $i);
+      }
+    }
+
+    &.#{$size}.isOnlyIcon {
+      width: nth(map-get($button-size, height), $i);
+      height: nth(map-get($button-size, height), $i);
+      border-radius: 100%;
+    }
+  }
+
+  &.isFullWidth:not(.text) {
+    width: 100%;
+  }
+
+  // State
+  &.isDisabled {
+    opacity: 0.6;
+    cursor: not-allowed;
   }
 
   &.isLoading {
     font-size: 0;
-    cursor: default;
-    pointer-events: none;
+    user-select: none;
+    cursor: progress;
 
     &:before {
       display: block;
       content: '';
       flex-shrink: 0;
-      width: 12px;
-      height: 12px;
-      border: 2px solid currentColor;
+      width: 1.2rem;
+      height: 1.2rem;
+      border: 0.2rem solid currentColor;
       border-top-color: transparent;
       border-radius: 100%;
       animation: rotate360deg infinite 1s linear;
     }
-  }
 
-  .loading {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    border: 0;
-    white-space: nowrap;
-    clip: rect(0, 0, 0, 0);
+    .loading {
+      @include blind;
+    }
   }
 }
