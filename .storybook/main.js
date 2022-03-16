@@ -25,9 +25,7 @@ module.exports = {
           loader: 'sass-loader',
           options: {
             additionalData: `
-						html {
-              color: red;
-            }
+            @import "./src/styles/_variable.scss";
 					`
           }
         }
