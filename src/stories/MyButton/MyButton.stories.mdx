@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import MyButton from './MyButton';
+
+<Meta title="MDX/MyButton" component={MyButton} />
+
+# 버튼
+
+## 그냥 버튼
+
+<Canvas>
+  <Story
+    name="default"
+    parameters={{
+      backgrounds: { values: [{ name: '연두색', value: '#bada77' }] }
+    }}
+  >
+    <MyButton size="small">small</MyButton>
+    <MyButton isLoading>medium</MyButton>
+  </Story>
+</Canvas>
+
+<ArgsTable story="default" />
+
+## 로딩
+
+로딩 상태는 버튼과 연결된 액션이 실행 중일 때 표시됩니다.

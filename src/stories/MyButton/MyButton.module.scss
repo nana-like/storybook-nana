@@ -56,4 +56,16 @@ button {
       animation: rotate360deg infinite 1s linear;
     }
   }
+
+  .loading {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    white-space: nowrap;
+    clip: rect(0, 0, 0, 0);
+  }
 }

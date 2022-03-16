@@ -1,0 +1,24 @@
+.logo {
+  width: 50px;
+  height: auto;
+
+  &.large {
+    width: 150px;
+  }
+
+  &.isTextOnly {
+    width: 60px;
+
+    &.large {
+      width: 100px;
+    }
+  }
+
+  &:hover {
+    color: #3e87f8;
+  }
+
+  &.isWhite {
+    color: #fff;
+  }
+}
