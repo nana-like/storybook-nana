@@ -19,21 +19,5 @@ module.exports = {
         tsConfigPath: 'tsconfig.paths.json'
       }
     }
-  ],
-  rules: [
-    // Apply loader
-    {
-      test: /\.scss$/,
-      use: [
-        // 'style-loader',
-        // 'css-loader',
-        {
-          loader: 'sass-loader',
-          options: {
-            additionalData: 'ㅏ멀ㄴ이ㅏ로마ㅣㅇㄴ러ㅣ마어림너'
-          }
-        }
-      ]
-    }
   ]
 };

@@ -1,4 +1,5 @@
 import '../src/index.css';
+import '../src/styles/_variable.scss';
 
 const enableBackgroundForMdx = (story, context) => {
   const defaultBackgroundColorKey = context?.parameters?.backgrounds?.default;

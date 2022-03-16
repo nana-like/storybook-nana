@@ -13,25 +13,30 @@ module.exports = {
     builder: 'webpack5'
   },
   webpackFinal: async (config, { configType }) => {
-    config.module.rules.push({
-      test: /\.scss$/,
-      use: [
-        'style-loader',
-        'css-loader',
-        'sass-loader',
-        {
-          loader: 'sass-loader',
-          options: {
-            additionalData: `
-						하핫ㅅㅂ;
-					`
+    config.module.rules.map((rule) => {
+      if (rule.oneOf) {
+        rule.oneOf = rule.oneOf.slice().map((subRule) => {
+          if (subRule.test instanceof RegExp && subRule.test.test('.scss')) {
+            return {
+              ...subRule,
+              use: [
+                ...subRule.use,
+                {
+                  loader: require.resolve('sass-resources-loader'),
+                  options: {
+                    resources: [
+                      path.resolve(__dirname, '../src/styles/_variable.scss')
+                    ]
+                  }
+                }
+              ]
+            };
           }
-        }
-      ],
-      include: path.resolve(__dirname, '../')
+          return subRule;
+        });
+      }
+      return rule;
     });
-
-    // Return the altered config
     return config;
   }
 };

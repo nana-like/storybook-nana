@@ -1,3 +1,6 @@
+@import './../../styles/variable';
+// @import '@/styles/variable';
+
 @keyframes rotate360deg {
   0% {
     transform: rotate(0deg);
@@ -17,7 +20,7 @@ button {
   font-size: 14px;
   padding: 10px 30px;
   color: #fff;
-  // background-color: $c-primary;
+  background-color: $c-primary;
 
   &.secondary {
     color: #333;
