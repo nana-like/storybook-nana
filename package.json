@@ -70,7 +70,11 @@
     "@storybook/testing-library": "^0.0.9",
     "craco-alias": "^3.0.1",
     "craco-sass-resources-loader": "^1.1.0",
+    "css-loader": "^6.7.1",
     "react-test-renderer": "^17.0.2",
+    "sass-loader": "^12.6.0",
+    "sass-resources-loader": "^2.2.4",
+    "style-loader": "^3.3.1",
     "webpack": "^5.70.0"
   }
 }

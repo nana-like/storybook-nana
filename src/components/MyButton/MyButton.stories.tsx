@@ -9,7 +9,9 @@ export default {
   }
 };
 
-const Template: Story<MyButtonProps> = (args) => <MyButton {...args} />;
+const Template: Story<MyButtonProps> = (args) => (
+  <MyButton {...args}>버튼이당</MyButton>
+);
 
 export const Default = Template.bind({});
 Default.args = {};
