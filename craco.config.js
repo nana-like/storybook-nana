@@ -6,7 +6,7 @@ module.exports = {
       loaderOptions: {
         additionalData: `
           @import "@/styles/_variable.scss";
-          @import "@/styles/_mixin.scss";
+          @import "@/styles/_helper.scss";
         `
       }
     }

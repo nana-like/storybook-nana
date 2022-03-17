@@ -136,11 +136,11 @@ button {
     }
   }
 
+  // State
   &.isFullWidth:not(.text):not(.isOnlyIcon) {
     width: 100%;
   }
 
-  // State
   &.isDisabled {
     opacity: 0.6;
     cursor: not-allowed;

@@ -49,7 +49,7 @@ export default function MyButton({
   return (
     <button
       type={type}
-      className={cx(`${appearance}`, `${color}`, `${size}`, {
+      className={cx(className, `${appearance}`, `${color}`, `${size}`, {
         isFullWidth,
         isDisabled,
         isLoading,

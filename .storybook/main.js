@@ -19,7 +19,7 @@ module.exports = {
           options: {
             additionalData: `
             @import "./src/styles/_variable.scss";
-            @import "./src/styles/_mixin.scss";
+            @import "./src/styles/_helper.scss";
 					`
           }
         }
