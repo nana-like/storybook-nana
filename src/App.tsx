@@ -75,9 +75,7 @@ function App() {
         <MyButton color="tertiary" size="large" isOnlyIcon ariaLabel="필터">
           <IconFilter />
         </MyButton>
-        <MyButton isOnlyIcon ariaLabel="필터">
-          <IconFilter />
-        </MyButton>
+        <MyButton isOnlyIcon ariaLabel="필터"></MyButton>
       </header>
     </div>
   );

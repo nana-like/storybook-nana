@@ -1,0 +1,11 @@
+// 스토리북 전용 스타일
+
+.sbdocs-preview {
+  button:not(:last-of-type) {
+    margin-right: 10px;
+  }
+}
+
+[id^='story--components-'] > button {
+  vertical-align: middle;
+}

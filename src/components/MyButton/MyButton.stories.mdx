@@ -1,0 +1,120 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import MyButton, { MyButtonProps } from './MyButton';
+import IconFilter from '../../assets/icon/IconFilter';
+
+<Meta title="Components/MyButton" component={MyButton} />
+
+export const Template = (args) => (
+  <MyButton {...args}>
+    {args.isOnlyIcon ? <IconFilter /> : args.children || '버튼'}
+  </MyButton>
+);
+
+# 버튼
+
+&lt;MyButton&gt; 컴포넌트<br/><br/>
+
+## 형태
+
+- appearance = `fill` | `outline` | `text`
+
+<Canvas>
+  <Story name="Appearance">
+    <MyButton appearance="fill">fill 버튼</MyButton>
+    <MyButton appearance="outline">outline 버튼</MyButton>
+    <MyButton appearance="text">text 버튼</MyButton>
+  </Story>
+</Canvas>
+
+## 색상
+
+- color = `primary` | `secondary` | `tertiary`
+
+<Canvas>
+  <Story name="Color">
+    <MyButton color="primary">primary 버튼</MyButton>
+    <MyButton color="secondary">secondary 버튼</MyButton>
+    <MyButton color="tertiary">tertiary 버튼</MyButton>
+  </Story>
+</Canvas>
+
+## 크기
+
+- size = `large` | `medium` | `small`
+
+<Canvas>
+  <Story name="Size">
+    <MyButton size="large">큰 버튼</MyButton>
+    <MyButton size="medium">버튼</MyButton>
+    <MyButton size="small">작은 버튼</MyButton>
+  </Story>
+</Canvas>
+
+## 기타 속성
+
+- isFullWidth
+- isDisabled
+- isLoading
+- isOnlyIcon
+
+<Canvas>
+  <Story name="Attribute">
+    <MyButton color="tertiary" isFullWidth>
+      풀 버튼
+    </MyButton>
+    <MyButton appearance="outline" color="tertiary" isFullWidth>
+      풀 버튼
+    </MyButton>
+    <MyButton isDisabled>사용불가 버튼</MyButton>
+    <MyButton appearance="outline" isDisabled>
+      사용불가 버튼
+    </MyButton>
+    <MyButton color="secondary" isLoading>
+      로딩 버튼
+    </MyButton>
+    <MyButton appearance="outline" color="secondary" size="small" isLoading>
+      로딩 버튼
+    </MyButton>
+    <MyButton isOnlyIcon ariaLabel="필터">
+      <IconFilter />
+    </MyButton>
+    <MyButton appearance="outline" size="small" isOnlyIcon ariaLabel="필터">
+      <IconFilter />
+    </MyButton>
+  </Story>
+</Canvas>
+
+## Playground
+
+자유롭게 컨트롤 해보세요!
+
+<Canvas>
+  <Story
+    name="Playground"
+    argTypes={{
+      onClick: {
+        table: {
+          disable: true
+        }
+      },
+      className: {
+        table: {
+          disable: true
+        }
+      },
+      type: {
+        table: {
+          disable: true
+        }
+      },
+      children: {
+        description: '버튼 콘텐츠 (텍스트, 아이콘 등)',
+        control: 'text'
+      }
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Playground" />

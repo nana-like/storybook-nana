@@ -1,3 +1,6 @@
+import '../src/styles/_storybook.scss';
+import '../src/styles/styles.scss';
+
 const enableBackgroundForMdx = (story, context) => {
   const defaultBackgroundColorKey = context?.parameters?.backgrounds?.default;
   const defaultBackgroundColor = context?.parameters?.backgrounds?.values?.find(
@@ -22,6 +25,9 @@ export const decorators = [enableBackgroundForMdx];
 
 export const parameters = {
   viewMode: 'docs',
+  previewTabs: {
+    canvas: { hidden: true }
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
