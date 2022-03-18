@@ -26,7 +26,8 @@
     "test": "craco test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "chromatic": "npx chromatic --project-token=4544a197491d"
   },
   "eslintConfig": {
     "extends": [
@@ -68,6 +69,7 @@
     "@storybook/preset-create-react-app": "^4.0.1",
     "@storybook/react": "^6.4.19",
     "@storybook/testing-library": "^0.0.9",
+    "chromatic": "^6.5.3",
     "craco-alias": "^3.0.1",
     "craco-sass-resources-loader": "^1.1.0",
     "css-loader": "^6.7.1",
