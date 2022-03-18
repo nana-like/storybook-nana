@@ -5,22 +5,23 @@ $checkbox-colors: (
 );
 
 .myCheckbox {
-  outline: 3px solid $c-primary;
+  font-size: 0;
 
   input {
     @include blind;
     cursor: pointer;
 
     & + label {
-      display: flex;
+      display: inline-flex;
+      align-items: center;
       font-size: 1.4rem;
       letter-spacing: -0.03rem;
       color: $c-black;
 
       &:before {
         position: relative;
-        bottom: 1px;
         display: inline-block;
+        flex-shrink: 0;
         width: $checkbox-size;
         height: $checkbox-size;
         margin-right: 1rem;
@@ -53,9 +54,9 @@ $checkbox-colors: (
       border-color: #ccc;
       background-color: #e8e8e8;
     }
-  }
 
-  &:hover input:not(:checked):not(:disabled) + label:before {
-    border-color: #444;
+    &:hover:not(:checked):not(:disabled) + label:before {
+      border-color: #444;
+    }
   }
 }

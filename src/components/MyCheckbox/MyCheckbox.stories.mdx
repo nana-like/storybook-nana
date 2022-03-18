@@ -1,0 +1,87 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import MyCheckbox, { MyCheckboxProps } from './MyCheckbox';
+
+<Meta
+  title="Components/MyCheckbox"
+  component={MyCheckbox}
+  decorators={[
+    (component) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        {component()}
+      </div>
+    )
+  ]}
+/>
+
+export const Template = (args) => (
+  <MyCheckbox {...args}>{args.children || '체크박스'}</MyCheckbox>
+);
+
+# 체크박스
+
+&lt;MyCheckbox /&gt; 컴포넌트<br/><br/>
+
+## 기본
+
+- 모든 체크박스는 고유 id값을 필요로 합니다.
+- 상태: `isChecked` | `isDisabled`
+
+<Canvas>
+  <Story name="Default">
+    <MyCheckbox id="ch-story-1">기본 체크박스</MyCheckbox>
+    <MyCheckbox id="ch-story-2" isChecked>
+      체크된 체크박스
+    </MyCheckbox>
+    <MyCheckbox id="ch-story-3" isChecked isDisabled>
+      체크된 사용불가 체크박스
+    </MyCheckbox>
+    <MyCheckbox id="ch-story-4" isDisabled>
+      사용불가 체크박스
+    </MyCheckbox>
+    <MyCheckbox id="ch-story-5">
+      <img
+        style={{ width: '100px', height: '100px' }}
+        src="https://item.kakaocdn.net/do/7f552a5d038cc7b0b6f99339bbc330baf43ad912ad8dd55b04db6a64cddaf76d"
+      />
+    </MyCheckbox>
+  </Story>
+</Canvas>
+
+## Playground
+
+자유롭게 컨트롤 해보세요!
+
+<Canvas>
+  <Story
+    name="Playground"
+    argTypes={{
+      id: {
+        defaultValue: 'test'
+      },
+      name: {
+        table: {
+          disable: true
+        }
+      },
+      onChange: {
+        table: {
+          disable: true
+        }
+      },
+      className: {
+        table: {
+          disable: true
+        }
+      },
+      children: {
+        defaultValue: '체크박스',
+        description: '체크박스 콘텐츠 (텍스트, 아이콘 등)',
+        control: 'text'
+      }
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Playground" />

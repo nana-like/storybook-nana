@@ -4,10 +4,13 @@ import { BaseSyntheticEvent, ReactNode, useState } from 'react';
 const cx = classNames.bind(style);
 
 interface MyCheckboxProps {
+  /** 체크박스와 레이블을 연결하기 위한 필수값 */
   id: string;
   name?: string;
   className?: string;
+  /** 체크됐는지 여부 */
   isChecked?: boolean;
+  /** 활성화 여부 */
   isDisabled?: boolean;
   children?: ReactNode;
   onChange?: (e: React.FormEvent<HTMLInputElement>) => void;
