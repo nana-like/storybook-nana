@@ -8,6 +8,7 @@ interface MyCheckboxProps {
   id: string;
   name?: string;
   className?: string;
+  appearance?: 'box' | 'switch';
   /** 체크됐는지 여부 */
   isChecked?: boolean;
   /** 활성화 여부 */
@@ -17,19 +18,20 @@ interface MyCheckboxProps {
 }
 
 export default function MyCheckbox({
-  className,
   id,
   name,
+  className,
+  appearance = 'box',
   isChecked = false,
   isDisabled = false,
-  children = '체크박스',
+  children,
   onChange = () => null,
   ...props
 }: MyCheckboxProps) {
   const [checked, setChecked] = useState(isChecked);
   const updateChecked = (e: BaseSyntheticEvent) => setChecked(e.target.checked);
   return (
-    <div className={cx(className, 'myCheckbox')}>
+    <div className={cx(className, 'myCheckbox', `${appearance}`)}>
       <input
         type="checkbox"
         id={id}

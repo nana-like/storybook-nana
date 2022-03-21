@@ -47,6 +47,29 @@ export const Template = (args) => (
   </Story>
 </Canvas>
 
+## 스위치
+
+- 모든 체크박스는 고유 id값을 필요로 합니다.
+- `appearance="switch"` 속성이 있는 경우 스위치 형태로 보여집니다.
+- 상태: `isChecked` | `isDisabled`
+
+<Canvas>
+  <Story name="Switch">
+    <MyCheckbox id="ch-story-6" appearance="switch">
+      기본 체크박스
+    </MyCheckbox>
+    <MyCheckbox id="ch-story-7" appearance="switch" isChecked>
+      체크된 체크박스
+    </MyCheckbox>
+    <MyCheckbox id="ch-story-8" appearance="switch" isChecked isDisabled>
+      체크된 사용불가 체크박스
+    </MyCheckbox>
+    <MyCheckbox id="ch-story-9" appearance="switch" isDisabled>
+      사용불가 체크박스
+    </MyCheckbox>
+  </Story>
+</Canvas>
+
 ## Playground
 
 자유롭게 컨트롤 해보세요!

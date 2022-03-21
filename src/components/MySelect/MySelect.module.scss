@@ -1,0 +1,92 @@
+$select-colors: (
+  active: $c-secondary,
+  error: #ff3535
+);
+
+.select {
+  position: relative;
+
+  .selectButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.6rem;
+    width: 100%;
+    height: 4rem;
+    color: #222;
+    font-size: 1.4rem;
+    border-radius: 0.4rem;
+    border: 0.1rem solid $c-form-gray;
+    background-color: #fff;
+    cursor: pointer;
+
+    &:not(:disabled):is(:hover, :focus) {
+      border-color: map-get($select-colors, active);
+    }
+  }
+
+  .option {
+    z-index: 1;
+    position: absolute;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    min-width: 12rem;
+    width: 100%;
+    margin: 0.8rem 0;
+    padding: 1rem 0;
+    border-radius: 0.4rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.06);
+    background-color: #fff;
+    box-shadow: 0 4px 16px 0 rgb(0 0 0 / 5%);
+    overflow-y: auto;
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    &Item {
+      display: block;
+      width: 100%;
+      text-align: left;
+      padding: 1rem 1.6rem;
+      line-height: 2.2rem;
+      min-height: 0.4rem;
+      white-space: nowrap;
+      color: #444;
+      cursor: pointer;
+
+      &:not(:disabled):is(:hover, :focus) {
+        background-color: rgba(map-get($select-colors, active), 0.08);
+      }
+    }
+
+    .isActive {
+      color: map-get($select-colors, active);
+    }
+
+    .isDisabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+
+  .placeholder {
+    color: #999;
+  }
+
+  &.isOpend {
+    .arrow {
+      transform: rotate(180deg);
+    }
+  }
+
+  &.isDisabled {
+    opacity: 0.6;
+    button {
+      cursor: not-allowed;
+    }
+  }
+}

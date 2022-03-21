@@ -2,24 +2,18 @@ import '@/styles/styles.scss';
 import MyButton from '@/components/MyButton/MyButton';
 import IconFilter from './assets/icon/IconFilter';
 import MyCheckbox from './components/MyCheckbox/MyCheckbox';
+import MySelect from './components/MySelect/MySelect';
+import MyDropDown from './components/MyDropDown/MyDropDown';
 
 function App() {
   return (
     <div className="App">
-      <MyCheckbox id="checkbox0" />
-      <MyCheckbox id="checkbox1" isDisabled />
-      <MyCheckbox id="checkbox2" isChecked />
-      <MyCheckbox id="checkbox3" isChecked isDisabled />
-      <MyCheckbox id="checkbox4">
-        <div
-          style={{
-            background:
-              'url(https://item.kakaocdn.net/do/a56e6ddd117688df80be93b1154a9856f43ad912ad8dd55b04db6a64cddaf76d)',
-            backgroundSize: 'cover',
-            width: '100px',
-            height: '100px'
-          }}
-        />
+      <MyDropDown>드롭다운</MyDropDown>
+      <MySelect>asdf</MySelect>
+      <MyCheckbox id="aaa">asdf</MyCheckbox>
+      <MyCheckbox id="bbb" appearance="switch" />
+      <MyCheckbox id="bb" appearance="switch">
+        asdf
       </MyCheckbox>
       <header style={{ display: 'none' }} className="App-header">
         <MyButton>그냥 버튼</MyButton>
