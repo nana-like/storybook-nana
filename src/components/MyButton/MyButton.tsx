@@ -8,7 +8,7 @@ export interface MyButtonProps {
   /** 버튼 HTML의 타입값 (기본값: button) */
   type?: 'button' | 'submit' | 'reset';
   /** 버튼 형태 (기본값: fill) */
-  appearance?: 'fill' | 'outline' | 'text';
+  appearance?: 'fill' | 'outline' | 'text' | 'pure';
   /** 버튼 색상값 (기본값: primary) */
   color?: 'primary' | 'secondary' | 'tertiary';
   /** 버튼 크기 (기본값: medium) */
@@ -24,7 +24,9 @@ export interface MyButtonProps {
   /** isOnlyIcon 일 때 접근성을 위한 대체 텍스트 */
   ariaLabel?: string;
   children?: ReactNode;
-  onClick?: (e: MouseEvent) => void;
+  onClick?: (e: any) => void;
+  onMouseDown?: (e: React.MouseEvent<HTMLButtonElement | MouseEvent>) => void;
+  onFocus?: (e: any) => void;
 }
 
 export default function MyButton({
@@ -40,12 +42,14 @@ export default function MyButton({
   ariaLabel,
   children,
   onClick = () => null,
+  onMouseDown = () => null,
+  onFocus = () => null,
   ...props
 }: MyButtonProps): JSX.Element {
   const [loading, setLoading] = useState<boolean>(isLoading);
-  const onButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.dir(e.currentTarget.innerText);
-  };
+  // const onButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   console.dir(e.currentTarget.innerText);
+  // };
   return (
     <button
       type={type}
@@ -57,7 +61,9 @@ export default function MyButton({
       })}
       disabled={isDisabled}
       aria-label={ariaLabel}
-      onClick={onButtonClick}
+      onClick={onClick}
+      onMouseDown={onMouseDown}
+      onFocus={onFocus}
       {...props}
     >
       {children}

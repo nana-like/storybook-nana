@@ -1,0 +1,44 @@
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/addon-docs';
+import MyInput, { MyInputProps } from './MyInput';
+
+<Meta
+  title="Components/MyInput"
+  component={MyInput}
+  decorators={[
+    (component) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+        {component()}
+      </div>
+    )
+  ]}
+/>
+
+export const Template = (args) => <MyInput {...args}></MyInput>;
+
+# 인풋
+
+&lt;MyInput /&gt; 컴포넌트<br/><br/>
+
+## 속성
+
+- `defaultValue` | `placeholder`
+
+<Canvas>
+  <Story name="Attribute">
+    <MyInput id="input1-1"></MyInput>
+    <MyInput id="input1-2" defaultValue="defaultValue"></MyInput>
+    <MyInput id="input1-3" placeholder="placeholder"></MyInput>
+  </Story>
+</Canvas>
+
+## 상태
+
+- `isFocused` | `isSearchInput` | `isDisabled`
+
+<Canvas>
+  <Story name="State">
+    <MyInput id="input2-1" isFocused defaultValue="isFocused"></MyInput>
+    <MyInput id="input2-2" isDisabled defaultValue="isDisabled"></MyInput>
+    <MyInput id="input2-3" isSearchInput defaultValue="isSearchInput"></MyInput>
+  </Story>
+</Canvas>

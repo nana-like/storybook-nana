@@ -1,0 +1,27 @@
+$input-colors: (
+  active: $c-secondary,
+  error: $c-error
+);
+
+.myInput {
+  @include mixin-form-ui($input-colors);
+  display: flex;
+  align-items: center;
+
+  .iconSearch {
+    flex-shrink: 0;
+    margin-left: -8px;
+    margin-right: 4px;
+    transform: translateY(1px);
+  }
+}
+
+body {
+  background-color: #f0f0f0;
+  padding: 3rem;
+}
+
+.myTestInput {
+  background: red;
+  @include mixin-form-ui;
+}

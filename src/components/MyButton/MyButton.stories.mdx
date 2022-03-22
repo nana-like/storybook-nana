@@ -16,13 +16,15 @@ export const Template = (args) => (
 
 ## 형태
 
-- appearance = `fill` | `outline` | `text`
+- appearance = `fill` | `outline` | `text` | `pure`
+- `pure`는 버튼 자체의 스타일링 없이 버튼 태그만 필요할 때 사용합니다.
 
 <Canvas>
   <Story name="Appearance">
     <MyButton appearance="fill">fill 버튼</MyButton>
     <MyButton appearance="outline">outline 버튼</MyButton>
     <MyButton appearance="text">text 버튼</MyButton>
+    <MyButton appearance="pure">pure 버튼</MyButton>
   </Story>
 </Canvas>
 

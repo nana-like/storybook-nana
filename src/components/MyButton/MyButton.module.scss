@@ -73,6 +73,12 @@ button {
     text-decoration: underline;
   }
 
+  &.pure {
+    width: auto;
+    height: auto;
+    line-height: 0;
+  }
+
   // Colors
   @each $name, $value in $button-colors {
     &.#{$name} {
@@ -112,7 +118,7 @@ button {
   @each $size in map-get($button-size, type) {
     $i: index(map-get($button-size, type), $size);
 
-    &.#{$size}:not(.text):not(.isOnlyIcon) {
+    &.#{$size}:not(.text):not(.isOnlyIcon):not(.pure) {
       height: nth(map-get($button-size, height), $i);
       padding: 0 nth(map-get($button-size, padding), $i);
       min-width: nth(map-get($button-size, width), $i);
@@ -122,7 +128,7 @@ button {
       }
     }
 
-    &.#{$size}.isOnlyIcon {
+    &.#{$size}.isOnlyIcon:not(.pure) {
       font-size: 0;
       width: nth(map-get($button-size, height), $i);
       height: nth(map-get($button-size, height), $i);

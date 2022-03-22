@@ -4,18 +4,22 @@ import IconFilter from './assets/icon/IconFilter';
 import MyCheckbox from './components/MyCheckbox/MyCheckbox';
 import MySelect from './components/MySelect/MySelect';
 import MyDropDown from './components/MyDropDown/MyDropDown';
-
+import MyInput, { MyTestInput } from './components/MyInput/MyInput';
+import { useState } from 'react';
 function App() {
   return (
     <div className="App">
-      <MyDropDown>드롭다운</MyDropDown>
-      <MySelect>asdf</MySelect>
-      <MyCheckbox id="aaa">asdf</MyCheckbox>
-      <MyCheckbox id="bbb" appearance="switch" />
-      <MyCheckbox id="bb" appearance="switch">
-        asdf
-      </MyCheckbox>
+      {/* <MyTestInput />
+      <MyTestInput placeholder="placeholder" />
+      <MyTestInput isFocused defaultValue="isFocused" />
+      <MyTestInput isDisabled defaultValue="isDisabled" /> */}
+      <MyInput id="input1"></MyInput>
+      <MyInput id="input2" isFocused defaultValue="isFocused"></MyInput>
+      <MyInput id="input3" placeholder="placeholder"></MyInput>
+      <MyInput id="input3" isSearchInput defaultValue="isSearchInput"></MyInput>
+      <MyInput id="input4" isDisabled defaultValue="isDisabled"></MyInput>
       <header style={{ display: 'none' }} className="App-header">
+        <hr />
         <MyButton>그냥 버튼</MyButton>
         <MyButton color="secondary">그냥 버튼</MyButton>
         <MyButton color="tertiary">그냥 버튼</MyButton>
