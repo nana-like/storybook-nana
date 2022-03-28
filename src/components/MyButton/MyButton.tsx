@@ -53,12 +53,19 @@ export default function MyButton({
   return (
     <button
       type={type}
-      className={cx(className, `${appearance}`, `${color}`, `${size}`, {
-        isFullWidth,
-        isDisabled,
-        isLoading,
-        isOnlyIcon
-      })}
+      className={cx(
+        className,
+        'myButton',
+        `${appearance}`,
+        `${color}`,
+        `${size}`,
+        {
+          isFullWidth,
+          isDisabled,
+          isLoading,
+          isOnlyIcon
+        }
+      )}
       disabled={isDisabled}
       aria-label={ariaLabel}
       onClick={onClick}

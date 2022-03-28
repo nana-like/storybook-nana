@@ -1,6 +1,6 @@
 import classNames from 'classnames/bind';
 import style from './MyInput.module.scss';
-import { ReactNode, useRef, useState } from 'react';
+import { ReactNode, SyntheticEvent, useRef, useState } from 'react';
 import MyButton from '../MyButton/MyButton';
 import IconInputClear from '../../assets/icon/IconInputClear';
 import IconSearch from '../../assets/icon/IconSearch';
@@ -28,6 +28,10 @@ export interface MyInputProps {
   /** 에러 상태 표시 여부 */
   isErrorInput?: boolean;
   children?: ReactNode;
+  ref?: any;
+  onChange?: (
+    e: SyntheticEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 export function MyTestInput({
